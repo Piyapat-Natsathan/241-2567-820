@@ -49,7 +49,9 @@ body{
 }
 
 .message.success{
-    background-color: lightgreen;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: green;
     display: block;
 }
 
