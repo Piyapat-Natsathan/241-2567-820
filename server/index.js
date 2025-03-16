@@ -25,27 +25,28 @@ const initMySQL = async () => {
 };
 
 const validateData = (userData) => {
-  let errors = []
-  if(!userData.firstname ) {
-      errors.push('กรุณากรอกชื่อ')
+  let errors = [];
+  if (!userData.firstname) {
+      errors.push('กรุณากรอกชื่อ');
   }
-  if(!userData.firstname ) {
-      errors.push('กรุณากรอกนามสกุล')
+  if (!userData.lastname) {
+      errors.push('กรุณากรอกนามสกุล');
   }
-  if(!userData.firstname ) {
-      errors.push('กรุณากรอกอายุ')
+  if (!userData.age) {
+      errors.push('กรุณากรอกอายุ');
   }
-  if(!userData.firstname ) {
-      errors.push('กรุณากรอกเพศ')
+  if (!userData.gender) {
+      errors.push('กรุณากรอกเพศ');
   }
-  if(!userData.firstname ) {
-      errors.push('กรุณากรอกความสนใจ')
+  if (!userData.interest) {
+      errors.push('กรุณากรอกความสนใจ');
   }
-  if(!userData.firstname ) {
-      errors.push('กรุณากรอกข้อมูลตัวเอง')
+  if (!userData.description) {
+      errors.push('กรุณากรอกข้อมูลตัวเอง');
   }
-  return errors
-}
+  return errors;
+};
+
 
 // app.get("/testdb-new", async (req, res) => {
 //   try {
@@ -75,12 +76,14 @@ app.post("/users", async (req, res) => {
       }
     };
 
-    const results = await conn.query("INSERT INTO users SET ?", user);
+    const results = await conn.query(
+      "INSERT INTO users (firstname, lastname, age, gender, interest, description) VALUES (?, ?, ?, ?, ?, ?)",
+      [user.firstname, user.lastname, user.age, user.gender, user.interest, user.description]
+  );  
     res.json({
       message: "User created successfully",
       data: results[0],
     });
-
   } catch (error) {
     const errorMessage = error.message || 'something went wrong '
     const errors = error.errors || []
@@ -110,34 +113,35 @@ app.get("/users/:id", async (req, res) => {
   }
 });
 
-app.put("/user/:id", async (req, res) => {
+app.put("/users/:id", async (req, res) => { 
   try {
     let id = req.params.id;
     let updatedUser = req.body;
-    let user = req.body;
-    const results = await conn.query("UPDATE users SET ? WHERE id = ?", [
-      updatedUser,
-      id,
-    ]);
+    
+    const results = await conn.query(
+      "UPDATE users SET firstname = ?, lastname = ?, age = ?, gender = ?, interest = ?, description = ? WHERE id = ?",
+      [updatedUser.firstname, updatedUser.lastname, updatedUser.age, updatedUser.gender, updatedUser.interest, updatedUser.description, id]
+    );
+
     res.json({
       message: "User updated successfully",
       data: results[0],
     });
   } catch (error) {
     console.error("errorMessage", error.message);
-    let statusCode = error.statusCode || 500;
-    res.status(statusCode).json({
+    res.status(500).json({
       message: "something went wrong",
       errorMessage: error.message,
     });
   }
 });
 
-app.delete("/user/:id", async (req, res) => {
+
+app.delete("/users/:id", async (req, res) => { // เปลี่ยน /user/:id เป็น /users/:id
   try {
     let id = req.params.id;
+    const result = await conn.query("DELETE FROM users WHERE id = ?", [id]); // ใส่ id ในอาร์เรย์
 
-    const result = await conn.query("DELETE FROM users WHERE id = ?", id);
     res.json({
       message: "User deleted successfully",
       data: result[0],
@@ -150,6 +154,7 @@ app.delete("/user/:id", async (req, res) => {
     });
   }
 });
+
 
 app.listen(port, async () => {
   console.log(`Server is running on port ${port}`);
