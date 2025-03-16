@@ -116,7 +116,7 @@ const submitData = async () => {
             const response = await axios.post(`${BASE_URL}/users`, userData);
             console.log('response', response.data);
         } else {
-            const response = await axios.put(`${BASE_URL}/users/${selectedId}`, userData);
+            const response = await axios.put(`${BASE_URL}/user/${selectedId}`, userData);
             message = 'เเก้ไขข้อมูลเรียบร้อย';
             console.log('response', response.data);
         }
