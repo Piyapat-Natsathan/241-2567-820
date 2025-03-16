@@ -57,9 +57,9 @@ const submitData = async () => {
     let messageDOM = document.getElementById('message');
     try {
         let errors = validateData(userData);
-        if (errors.length > 0) throw { message: 'กรุณากรอกข้อมูลให้ครบถ้วน', errors };
+        if (errors.length > 0) throw { message: 'กรุณากรอกข้อมูลให้ครบถ้วน ❗', errors };
 
-        let message = mode === 'CREATE' ? 'บันทึกข้อมูลเรียบร้อย' : 'แก้ไขข้อมูลเรียบร้อย';
+        let message = mode === 'CREATE' ? 'บันทึกข้อมูลเรียบร้อย✅' : 'แก้ไขข้อมูลเรียบร้อย';
         let response;
 
         if (mode === 'CREATE') {
