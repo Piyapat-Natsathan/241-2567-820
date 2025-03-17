@@ -12,7 +12,7 @@ const loadedData = async() =>{
     console.log(response.data);
 
     // 2.นำ user ที่โหลดมาเเสดงผลใน HTML
-    const userDOM = document.getElementById('user');
+    const userDOM = document.getElementById('users');
 
     let htmlData = '<div>';
     for (let i=0 ; i<response.data.length; i++){
