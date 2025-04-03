@@ -1,6 +1,6 @@
 docker -v
 docker ps
 docker ps --all
-docker run heelo-world
+docker run hello-world
 docker run -p 80:80 nginx
 docker run -d -p 9000:80 nginx

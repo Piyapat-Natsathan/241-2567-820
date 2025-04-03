@@ -1,33 +1,118 @@
-@font-face {
-    font-family: 'Kanit';
-    src: url('./Kanit/Kanit-Regular.ttf');
+@font-face { //ใช้เพื่อกำหนดฟอนต์ที่เราต้องการนำมาใช้ 
+    font-family: 'Kanit'; //กำหนดชื่อฟอนต์ที่เราจะใช้
+    src: url('./Kanit/Kanit-Regular.ttf'); //ระบุแหล่งที่มาของไฟล์ฟอนต์
 }
-body{
-    font-family: 'Kanit';
+
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background-image: url('sky-stardew.png'); 
+    background-size: cover; 
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    flex-direction: column;
+    margin: 20px;
 }
-.container{
-    width: 100%;
+.container {
+    background-image: url('sky1.jpg'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
     max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: azure;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 50px;
+    border: 3px solid #ffffff;
+    border-radius: 35px;
     box-sizing: border-box;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้กับ container */
+    backdrop-filter: blur(10px);
 }
+
+
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.header-form {
+    display: block;
+    font-weight: bolder;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+}
+
+.form-input {
+    font-weight: bolder;
+}
+.form {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: 0.3s;
+}
+
+
+input.form:hover, textarea:hover { 
+    box-shadow: 0 0 3px black;
+    transform: scale(1.025);
+}
+input.form:focus, textarea:focus {
+    outline: none;
+    border:  none;
+    background-color:rgb(190, 234, 255);
+    box-shadow: 0 0 3px black;
+    transform: scale(1.025);
+}
+
+.button {
+    background-color: #0077cc;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #005fa3;
+}
+
 .header{
     font-size: 30px;
     text-align: center;
     margin-bottom: 20px;
 }
-.header-form{
-    width: 140px;
-}
+
+
 .flex{
     display: flex;
+    position: relative;
+    margin-bottom: 20px;
 }
-.form-input{
-    margin-bottom: 10px;
-}
+
+
 .input.form,textarea{
     border: 1px solid black;
     width: 100%;
@@ -35,17 +120,16 @@ body{
 .center{
     text-align: center;
 }
-.button{
-    border: 0;
-    width: 100%;
-    background-color: aqua;
-    height: 40px;
-}
+
 .message{
     margin-top: 20px;
     padding: 10px;
     background-color: lightgray;
     display: none;
+}
+.form-input {
+    display: block;
+    margin-bottom: 5px;
 }
 
 .message.success{

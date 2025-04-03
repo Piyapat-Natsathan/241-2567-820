@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'kanit';
+    src: url('./Kanit/Kanit-Light.ttf');
+}
+
+body {
+    font-family: 'kanit';
+    margin: 15px;
+    padding: 20px;
+    background-image: url('night-sky.jpg'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h2 {
+    text-align: center;
+    color: #5f30df;
+    font-size: 40px;
+}
+
+a {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+
+
+.user-table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 15px; 
+    font-size: 16px;
+}
+
+.user-table thead {
+    background-color: #5f30df;
+}
+
+.user-table th, {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+.user-table td {
+    background-color:rgb(110, 110, 110);
+    text-align: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.user-table th {
+    color: white;
+    font-size: 18px;
+    padding: 12px 15px;
+    text-align: center;
+    border: none;
+}
+
+.user-table td:last-child {
+    white-space: nowrap;
+}
+
+.user-table button {
+    margin: 2px;
+    background-color: #5f30df;
+    color: white;
+    font-weight: bold;
+}
+
+.user-table button:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+
+button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+script {
+    display: none;
+}
+
+button:hover {
+    opacity: 0.8;
+}
